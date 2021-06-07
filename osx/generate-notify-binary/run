@@ -1,0 +1,13 @@
+#!/bin/bash
+APP_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+CUR_DIR=`pwd`
+cd $APP_DIR
+mkdir __MACOSX
+cp -rf ../ti-notifier.app $APP_DIR/__MACOSX
+cp -rf ../ti-notifier.app $APP_DIR
+zip -r file.zip __MACOSX ti-notifier.app
+gzip -9 file.zip
+go run ./ file.zip.gz > file
+rm -rf __MACOSX ti-notifier.app file.zip.gz
+cd $CUR_DIR
+
