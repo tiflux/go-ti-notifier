@@ -34,9 +34,7 @@ func supportedOS() bool {
 func init() {
 	if supportedOS() {
 		err := installTerminalNotifier()
-		if err != nil {
-			log.Fatalf("Could not install Terminal Notifier to a temp directory: %s", err)
-		} else {
+		if err == nil {
 			FinalPath = filepath.Join(rootPath, executablePath)
 		}
 	}
