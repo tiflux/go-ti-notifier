@@ -51,7 +51,6 @@ func exists(file string) bool {
 
 func installTerminalNotifier() error {
 	rootPath = filepath.Join(os.TempDir(), tempDirSuffix)
-	fmt.Println(rootPath)
 
 	//if ti-notifier.app already installed no-need to re-install
 	if exists(filepath.Join(rootPath, executablePath)) {
