@@ -4,12 +4,14 @@ import (
 	"log"
 	"os"
 	"strings"
+	"fmt"
 
 	gotinotifier "github.com/TiFlux/go-ti-notifier"
 )
 
 func main() {
 	notification := strings.Join(os.Args[1:], " ")
+	fmt.Println(os.TempDir())
 
 	note := gotinotifier.NewNotification(notification)
 
